@@ -1,36 +1,11 @@
-import './assets/Avalanche.css'
-import './assets/pageSections.css'
-import './assets/generals.css'
-import './assets/team.css'
-
-import './assets/Backdrop.css'
-// import './assets/DrawerToggleButton.css'
-import './assets/Navbar.css'
-import './assets/responsive.css'
-import './assets/SideDrawer.css'
-import './assets/Toolbar.css'
-
-// import './assets/components/footer.css'
-// import './assets/components/navbar.css'
-
-import './assets/Slide.css'
-// import './assets/cards.css'
-
-// import './assets/new-navbar.css';
-import './assets/Button.css'
-
-import './assets/ballHive.css'
-import './assets/playerSignUp.css'
-import './assets/landing-page.css'
-
 import React, { useState, useEffect } from "react";
 import { GiSoccerBall } from "react-icons/gi";
 import axios from "axios";
 // import NavbarTwo from "../components/navbar-two";
 import { Input, Form, Select, Upload, Tabs, message } from "antd";
-import { InboxOutlined } from "@ant-design/icons";
-
 const { TabPane } = Tabs;
+
+import { InboxOutlined } from "@ant-design/icons";
 
 const { Dragger } = Upload;
 const { Option } = Select;
@@ -274,7 +249,7 @@ const props = {
   );
 };
 
-export default function SignUpForm() {
+export default function signUpForm() {
   return (
     <>
       {/* <NavbarTwo /> */}
