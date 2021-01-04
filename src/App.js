@@ -57,45 +57,59 @@ const SectionBoxes = () => {
   const sendData = async (values) => {
    
     // const host = "https://avalanche-backend.herokuapp.com";
-    const host = 'http://127.0.0.1:8000'
-    const endpoint = host + `/core/reg-upload/`;
+    const host = 'http://127.0.0.1:5000'
+    // const host = 'https://avalanche-node.herokuapp.com'
+    const endpoint = host + `/core/reg-user/`;
 
     const fName =  values['fName']
     const lName =  values['lName']
     const email =  values['Email']
     const Position = values['Position']
+    const Nationality = values['Nationality'] 
     const Phone = values['Phone']
 
-    let videoUpload = videoFile
+    let VideoUpload = videoFile
     let Age = 0;
 
     if (registeringCategory == Coach || registeringCategory == Scout) {
     } else {
-      // videoUpload = e.target.elements.playerVideo.files;
+      // VideoUpload = e.target.elements.playerVideo.files;
       // Age = e.target.elements.age.value;
     }
     const Category = registeringCategory;
 
-    console.log(fName, lName, email, Phone, videoUpload, Category);
+    console.log(fName, lName, email, Phone, VideoUpload, Category);
 
     let fd = new FormData();
     fd.append("fName", fName);
     fd.append("lName", lName);
-    fd.append("email", email); 
-    fd.append("phone", Phone);
+    fd.append("Email", email); 
+    fd.append("Phone", Phone); 
     fd.append('Position',Position)
-    fd.append("videoUpload", videoUpload);
-    fd.append("category", Category);
+    fd.append("VideoUpload", VideoUpload);
+    fd.append("Type", Category);
+    fd.append('Nationality',Nationality)
     fd.append("age", Age);
 
-    axios.post(endpoint, fd).then((res) => {
+    // headers: {"Access-Control-Allow-Origin": "*"}
+
+    axios.defaults.headers = {
+      "Content-Type": "application/json",
+    };
+    axios.post(endpoint, fd)
+    .then((res) => {
       if (res.status == 200) {
         message.success("Registration Successfully");
+ 
       } else {
         message.error("Registration Failed ");
       }
-    });
-  };
+      // window.location.replace('https://ava-sigma.vercl.app')
+    }) .catch((e)=>{
+      console.log(e)
+    })
+   
+  }
 
   // Video
   
@@ -148,13 +162,13 @@ const props = {
                     enterButton
                   />
                 </Form.Item>
-
+                
                 <Form.Item rules={[{ required: true }]} name="Email">
                   <Input size="large" placeholder="Your Email?" enterButton />
                 </Form.Item>
-                
+
                 <Form.Item rules={[{ required: true }]} name="Phone">
-                  <Input size="large" placeholder="Your Email?" enterButton />
+                  <Input size="large" placeholder="Your Phone?" enterButton />
                 </Form.Item>
 
                 <Form.Item rules={[{ required: true }]} name="Nationality">
@@ -168,35 +182,6 @@ const props = {
                     enterButton
                   />
                 </Form.Item>
-                
-                {/* <Form.Item
-                    rules={[{ required: true }]}
-                    name="State"
-                    hasFeedback
-                  >
-                    <Select size="large" placeholder="Select Your Role">
-                    <Option
-                    onSelect={()=>{userIsPlayer()}}
-                    value='Player'>
-                      Player
-                    </Option>
-                    <Option
-                      onSelect={() => {
-                        dontUserPlayer(Coach);
-                      }}
-                    value='Coach'>
-                      Coach
-                    </Option>
-                    <Option
-                    onSelect={() => {
-                      dontUserPlayer(Scout);
-                    }}
-                    value='Scout'>
-                      Scout
-                    </Option>
-                      
-                    </Select>
-                  </Form.Item> */}
 
                 <Form.Item>
                   <div className="reg-category-container">
@@ -252,7 +237,7 @@ const props = {
                           from uploading company data or other band files
                         </p>
                       </Dragger>
-                    ]
+                    
                  
                     </>
                   ) : (
@@ -263,7 +248,7 @@ const props = {
                     htmltype="submit"
                     className="registerbtn"
                   >
-                    Sign Up
+                    Sign  Up
                   </button>
                 </Form.Item>
               </Form>
