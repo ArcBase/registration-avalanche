@@ -5,6 +5,9 @@ import { Input, Form, Select, Upload, Tabs, message } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 import { GiSoccerBall } from "react-icons/gi";
 
+
+const { Dragger } = Upload;
+
 export default function Simp(params) {
   const [isPlayer, setisPlayer] = useState(false);
   const [registeringCategory, setRegisteringCategory] = useState("Player");
