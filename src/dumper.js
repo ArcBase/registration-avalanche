@@ -7,8 +7,7 @@ import { GiSoccerBall } from "react-icons/gi";
 
 
 const { Dragger } = Upload;
-const { Option } = Select;
-
+ 
   
 const SectionBoxes = () => {
   const [isPlayer, setisPlayer] = useState(false);
