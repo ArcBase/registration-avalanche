@@ -3,7 +3,8 @@ import 'antd/dist/antd.min.css'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Simp from './App';
+// import Simp from './App';
+import SignUpForm from './sub'
 // import reportWebVitals from './reportWebVitals';
 
 
@@ -38,7 +39,7 @@ import './assets/landing-page.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Simp />
+    <SignUpForm />
   </React.StrictMode>,
   document.getElementById('root')
 );
