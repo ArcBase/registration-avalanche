@@ -118,7 +118,7 @@ const props = {
                 </div>
               <Form
                 className=""
-                onFinish={sendData}
+                // onFinish={sendData}
               >
                 <Form.Item rules={[{ required: true }]} name="fName">
                   <Input
