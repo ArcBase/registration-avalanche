@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,Component } from "react";
 import axios from "axios";
 import { Input, Form, Upload, message } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
@@ -15,6 +15,8 @@ const SectionBoxes = () => {
   const Coach = "Coach";
   const Scout = "Scout";
 
+    state
+
   function userIsPlayer() {
     setisPlayer(true);
     setRegisteringCategory("Player");
@@ -27,61 +29,61 @@ const SectionBoxes = () => {
     console.log(Val);
   }
 
-  // const sendData = async (values) => {
+  const sendData = async (values) => {
    
-  //   // const host = "https://avalanche-backend.herokuapp.com";
-  //   const host = 'http://127.0.0.1:5000'
-  //   // const host = 'https://avalanche-node.herokuapp.com'
-  //   const endpoint = host + `/core/reg-user/`;
+    // const host = "https://avalanche-backend.herokuapp.com";
+    const host = 'http://127.0.0.1:5000'
+    // const host = 'https://avalanche-node.herokuapp.com'
+    const endpoint = host + `/core/reg-user/`;
 
-  //   const fName =  values['fName']
-  //   const lName =  values['lName']
-  //   const email =  values['Email']
-  //   const Position = values['Position']
-  //   const Nationality = values['Nationality'] 
-  //   const Phone = values['Phone']
+    const fName =  values['fName']
+    const lName =  values['lName']
+    const email =  values['Email']
+    const Position = values['Position']
+    const Nationality = values['Nationality'] 
+    const Phone = values['Phone']
 
-  //   let VideoUpload = videoFile
-  //   let Age = 0;
+    let VideoUpload = videoFile
+    let Age = 0;
 
-  //   if (registeringCategory === Coach || registeringCategory === Scout) {
-  //   } else {
-  //     // VideoUpload = e.target.elements.playerVideo.files;
-  //     // Age = e.target.elements.age.value;
-  //   }
-  //   const Category = registeringCategory;
+    if (registeringCategory === Coach || registeringCategory === Scout) {
+    } else {
+      // VideoUpload = e.target.elements.playerVideo.files;
+      // Age = e.target.elements.age.value;
+    }
+    const Category = registeringCategory;
 
-  //   console.log(fName, lName, email, Phone, VideoUpload, Category);
+    console.log(fName, lName, email, Phone, VideoUpload, Category);
 
-  //   let fd = new FormData();
-  //   fd.append("fName", fName);
-  //   fd.append("lName", lName);
-  //   fd.append("Email", email); 
-  //   fd.append("Phone", Phone); 
-  //   fd.append('Position',Position)
-  //   fd.append("VideoUpload", VideoUpload);
-  //   fd.append("Type", Category);
-  //   fd.append('Nationality',Nationality)
-  //   fd.append("age", Age); 
+    let fd = new FormData();
+    fd.append("fName", fName);
+    fd.append("lName", lName);
+    fd.append("Email", email); 
+    fd.append("Phone", Phone); 
+    fd.append('Position',Position)
+    fd.append("VideoUpload", VideoUpload);
+    fd.append("Type", Category);
+    fd.append('Nationality',Nationality)
+    fd.append("age", Age); 
 
-  //   // headers: {"Access-Control-Allow-Origin": "*"}
+    // headers: {"Access-Control-Allow-Origin": "*"}
 
-  //   axios.defaults.headers = {
-  //     "Content-Type": "application/json",
-  //   };
-  //   axios.post(endpoint,fd).then((res)=>{
-  //     if (res.status === 200) {
-  //       message.success("Registration Successfully");
+    axios.defaults.headers = {
+      "Content-Type": "application/json",
+    };
+    axios.post(endpoint,fd).then((res)=>{
+      if (res.status === 200) {
+        message.success("Registration Successfully");
  
-  //     } else {
-  //       message.error("Registration Failed ");
-  //     }
-  //     // window.location.replace('https://ava-sigma.vercl.app')
-  //   }) .catch((e)=>{
-  //     console.log(e)
-  //   })
+      } else {
+        message.error("Registration Failed ");
+      }
+      // window.location.replace('https://ava-sigma.vercl.app')
+    }) .catch((e)=>{
+      console.log(e)
+    })
    
-  // }
+  }
 
   // Video
   
