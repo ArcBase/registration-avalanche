@@ -1,17 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios"
 
-import { Input, Form, Select, Upload, Tabs, message } from "antd";
+import { Input, Form } from "antd";
 
-
-const { Dragger } = Upload;
-
-export default function Simp(params) {
-  const [isPlayer, setisPlayer] = useState(false);
-  const [registeringCategory, setRegisteringCategory] = useState("Player");
-  const [videoFile ,setVideo] = useState([])
-  const Coach = "Coach";
-  const Scout = "Scout";
+export default function Simp() {
 
   // Video
   
